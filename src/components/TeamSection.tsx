@@ -50,28 +50,28 @@ const TeamSection = () => (
         </p>
       </AnimatedSection>
 
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
         {team.map((m, i) => (
           <AnimatedSection key={m.name} delay={i * 0.1}>
             <motion.div
               whileHover={{ y: -8 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              className="group text-center rounded-2xl bg-card border border-border hover:border-accent/40 transition-all duration-300 hover:shadow-2xl overflow-hidden"
+              className="group text-center rounded-xl sm:rounded-2xl bg-card border border-border hover:border-accent/40 transition-all duration-300 hover:shadow-2xl overflow-hidden"
             >
               <div className="overflow-hidden">
                 <img
                   src={m.photo}
                   alt={`Foto de ${m.name}`}
-                  className="w-full h-52 sm:h-64 object-cover object-top transition-transform duration-500 group-hover:scale-110"
+                  className="w-full h-36 sm:h-64 object-cover object-top transition-transform duration-500 group-hover:scale-110"
                   loading="lazy"
                 />
               </div>
-              <div className="p-4 sm:p-5 text-center flex flex-col flex-1">
-                <h3 className="font-serif font-semibold text-base sm:text-lg text-foreground mb-1">{m.name}</h3>
-                <p className="text-accent text-xs sm:text-sm font-medium mb-3">{m.role}</p>
-                <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed mb-4 flex-1">{m.bio}</p>
+              <div className="p-3 sm:p-5 text-center flex flex-col flex-1">
+                <h3 className="font-serif font-semibold text-sm sm:text-lg text-foreground mb-0.5 sm:mb-1">{m.name}</h3>
+                <p className="text-accent text-[11px] sm:text-sm font-medium mb-1.5 sm:mb-3">{m.role}</p>
+                <p className="text-muted-foreground text-[11px] sm:text-sm leading-relaxed mb-2 sm:mb-4 flex-1 hidden sm:block">{m.bio}</p>
                 <button className="inline-flex items-center justify-center gap-1 text-muted-foreground hover:text-accent transition-colors" aria-label={`LinkedIn de ${m.name}`}>
-                  <Linkedin className="w-4 h-4" />
+                  <Linkedin className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 </button>
               </div>
             </motion.div>
