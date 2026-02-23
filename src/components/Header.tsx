@@ -37,9 +37,15 @@ const Header = () => {
       }`}
     >
       <div className="container mx-auto flex items-center justify-between">
+        {/* Logo */}
         <a href="#inicio" className="flex items-center gap-2">
-          <span className="text-2xl font-serif font-bold text-primary">
-            Fisio<span className="text-accent">Elite</span>
+          <div className="w-9 h-9 rounded-lg bg-accent flex items-center justify-center">
+            <span className="text-accent-foreground font-serif font-bold text-lg leading-none">F</span>
+          </div>
+          <span className={`text-2xl font-serif font-bold transition-colors duration-500 ${
+            isScrolled ? "text-primary" : "text-primary-foreground"
+          }`}>
+            Fisio<span className="text-secondary">Elite</span>
           </span>
         </a>
 
@@ -49,7 +55,11 @@ const Header = () => {
             <button
               key={item.href}
               onClick={() => scrollTo(item.href)}
-              className="text-sm font-medium text-foreground/80 hover:text-accent transition-colors duration-300 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-accent after:transition-all after:duration-300 hover:after:w-full"
+              className={`text-sm font-medium transition-colors duration-300 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-secondary after:transition-all after:duration-300 hover:after:w-full ${
+                isScrolled
+                  ? "text-foreground/80 hover:text-accent"
+                  : "text-primary-foreground/85 hover:text-secondary"
+              }`}
             >
               {item.label}
             </button>
@@ -66,7 +76,7 @@ const Header = () => {
         {/* Mobile Toggle */}
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="lg:hidden text-foreground p-2"
+          className={`lg:hidden p-2 transition-colors ${isScrolled ? "text-foreground" : "text-primary-foreground"}`}
           aria-label="Toggle menu"
         >
           {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
