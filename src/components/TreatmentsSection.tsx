@@ -1,4 +1,5 @@
 import { Bone, Activity, Repeat, Leaf, PersonStanding, Dumbbell, ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
 import AnimatedSection from "./AnimatedSection";
 
 const treatments = [
@@ -30,7 +31,11 @@ const TreatmentsSection = () => (
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {treatments.map((t, i) => (
           <AnimatedSection key={t.title} delay={i * 0.08}>
-            <div className="group p-8 rounded-2xl bg-card border border-border hover:border-accent/40 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 h-full flex flex-col">
+            <motion.div
+              whileHover={{ y: -8, scale: 1.02 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              className="group p-8 rounded-2xl bg-card border border-border hover:border-accent/40 transition-all duration-300 hover:shadow-2xl h-full flex flex-col"
+            >
               <div className="w-14 h-14 rounded-2xl bg-accent/10 flex items-center justify-center mb-5 group-hover:bg-accent group-hover:text-accent-foreground transition-all duration-300">
                 <t.icon className="w-7 h-7 text-accent group-hover:text-accent-foreground transition-colors" />
               </div>
@@ -39,7 +44,7 @@ const TreatmentsSection = () => (
               <button className="inline-flex items-center gap-2 text-accent font-medium text-sm hover:gap-3 transition-all">
                 Saiba Mais <ArrowRight className="w-4 h-4" />
               </button>
-            </div>
+            </motion.div>
           </AnimatedSection>
         ))}
       </div>

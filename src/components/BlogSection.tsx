@@ -1,5 +1,9 @@
 import { ArrowRight, Clock } from "lucide-react";
+import { motion } from "framer-motion";
 import AnimatedSection from "./AnimatedSection";
+import blogColuna from "@/assets/blog-coluna.jpg";
+import blogEsportiva from "@/assets/blog-esportiva.jpg";
+import blogRpg from "@/assets/blog-rpg.jpg";
 
 const posts = [
   {
@@ -8,6 +12,7 @@ const posts = [
     category: "Dores na Coluna",
     date: "18 Fev 2026",
     readTime: "5 min",
+    image: blogColuna,
   },
   {
     title: "Como a Fisioterapia Esportiva Acelera Sua Recuperação",
@@ -15,6 +20,7 @@ const posts = [
     category: "Reabilitação Esportiva",
     date: "12 Fev 2026",
     readTime: "7 min",
+    image: blogEsportiva,
   },
   {
     title: "RPG: O Que É e Para Quem É Indicado?",
@@ -22,6 +28,7 @@ const posts = [
     category: "Prevenção",
     date: "05 Fev 2026",
     readTime: "4 min",
+    image: blogRpg,
   },
 ];
 
@@ -45,9 +52,20 @@ const BlogSection = () => (
       <div className="grid md:grid-cols-3 gap-6">
         {posts.map((p, i) => (
           <AnimatedSection key={p.title} delay={i * 0.1}>
-            <article className="group rounded-2xl bg-card border border-border hover:border-accent/40 transition-all duration-300 hover:shadow-xl overflow-hidden h-full flex flex-col">
-              <div className="h-48 bg-gradient-to-br from-accent/20 to-primary/10 flex items-center justify-center">
-                <span className="text-xs font-semibold text-accent uppercase tracking-widest bg-accent/10 px-3 py-1 rounded-full">
+            <motion.article
+              whileHover={{ y: -6 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              className="group rounded-2xl bg-card border border-border hover:border-accent/40 transition-all duration-300 hover:shadow-2xl overflow-hidden h-full flex flex-col"
+            >
+              <div className="relative h-52 overflow-hidden">
+                <img
+                  src={p.image}
+                  alt={p.title}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-card/80 to-transparent" />
+                <span className="absolute top-4 left-4 text-xs font-semibold text-accent-foreground uppercase tracking-widest bg-accent/90 px-3 py-1 rounded-full backdrop-blur-sm">
                   {p.category}
                 </span>
               </div>
@@ -64,7 +82,7 @@ const BlogSection = () => (
                   Ler Mais <ArrowRight className="w-4 h-4" />
                 </button>
               </div>
-            </article>
+            </motion.article>
           </AnimatedSection>
         ))}
       </div>
