@@ -29,7 +29,7 @@ const ContactSection = () => {
           </p>
         </AnimatedSection>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
           {/* Form */}
           <AnimatedSection>
             <form onSubmit={handleSubmit} className="space-y-5">

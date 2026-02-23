@@ -49,7 +49,7 @@ const BlogSection = () => (
         </p>
       </AnimatedSection>
 
-      <div className="grid md:grid-cols-3 gap-6">
+      <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5 sm:gap-6">
         {posts.map((p, i) => (
           <AnimatedSection key={p.title} delay={i * 0.1}>
             <motion.article

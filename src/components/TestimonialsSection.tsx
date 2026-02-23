@@ -62,9 +62,9 @@ const TestimonialsSection = () => {
 
         <div className="max-w-3xl mx-auto">
           <AnimatedSection>
-            <div className="relative bg-primary-foreground/5 backdrop-blur-sm rounded-3xl p-8 md:p-12 border border-primary-foreground/10">
+            <div className="relative bg-primary-foreground/5 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 border border-primary-foreground/10">
               <Quote className="w-12 h-12 text-secondary/40 mb-6" />
-              <p className="text-xl md:text-2xl leading-relaxed mb-8 text-primary-foreground/90 font-light italic">
+              <p className="text-base sm:text-xl md:text-2xl leading-relaxed mb-6 sm:mb-8 text-primary-foreground/90 font-light italic">
                 "{t.text}"
               </p>
 

@@ -30,7 +30,7 @@ const Footer = () => (
           </nav>
         </div>
       </div>
-      <div className="border-t border-primary-foreground/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-primary-foreground/50">
+      <div className="border-t border-primary-foreground/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-primary-foreground/50">
         <p>© 2026 FisioElite. Todos os direitos reservados.</p>
         <p className="flex items-center gap-1">
           Feito com <Heart className="w-4 h-4 text-secondary fill-secondary" /> para sua saúde

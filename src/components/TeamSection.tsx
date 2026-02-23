@@ -50,7 +50,7 @@ const TeamSection = () => (
         </p>
       </AnimatedSection>
 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
         {team.map((m, i) => (
           <AnimatedSection key={m.name} delay={i * 0.1}>
             <motion.div
@@ -62,14 +62,15 @@ const TeamSection = () => (
                 <img
                   src={m.photo}
                   alt={`Foto de ${m.name}`}
-                  className="w-full h-64 object-cover object-top transition-transform duration-500 group-hover:scale-110"
+                  className="w-full h-48 sm:h-64 object-cover object-top transition-transform duration-500 group-hover:scale-110"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent opacity-60" />
               </div>
-              <div className="p-6 -mt-8 relative z-10">
-                <h3 className="font-serif font-semibold text-lg text-foreground mb-1">{m.name}</h3>
-                <p className="text-accent text-sm font-medium mb-3">{m.role}</p>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-4">{m.bio}</p>
+              <div className="p-4 sm:p-6 -mt-8 relative z-10">
+                <h3 className="font-serif font-semibold text-sm sm:text-lg text-foreground mb-1">{m.name}</h3>
+                <p className="text-accent text-xs sm:text-sm font-medium mb-2 sm:mb-3">{m.role}</p>
+                <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed mb-3 sm:mb-4 hidden sm:block">{m.bio}</p>
                 <button className="inline-flex items-center gap-1 text-muted-foreground hover:text-accent transition-colors" aria-label={`LinkedIn de ${m.name}`}>
                   <Linkedin className="w-4 h-4" />
                 </button>
