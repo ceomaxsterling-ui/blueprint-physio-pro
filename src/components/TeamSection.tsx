@@ -58,20 +58,19 @@ const TeamSection = () => (
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
               className="group text-center rounded-2xl bg-card border border-border hover:border-accent/40 transition-all duration-300 hover:shadow-2xl overflow-hidden"
             >
-              <div className="relative overflow-hidden">
+              <div className="overflow-hidden">
                 <img
                   src={m.photo}
                   alt={`Foto de ${m.name}`}
-                  className="w-full h-48 sm:h-64 object-cover object-top transition-transform duration-500 group-hover:scale-110"
+                  className="w-full h-52 sm:h-64 object-cover object-top transition-transform duration-500 group-hover:scale-110"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent opacity-60" />
               </div>
-              <div className="p-4 sm:p-6 -mt-8 relative z-10">
-                <h3 className="font-serif font-semibold text-sm sm:text-lg text-foreground mb-1">{m.name}</h3>
-                <p className="text-accent text-xs sm:text-sm font-medium mb-2 sm:mb-3">{m.role}</p>
-                <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed mb-3 sm:mb-4 hidden sm:block">{m.bio}</p>
-                <button className="inline-flex items-center gap-1 text-muted-foreground hover:text-accent transition-colors" aria-label={`LinkedIn de ${m.name}`}>
+              <div className="p-4 sm:p-5 text-center flex flex-col flex-1">
+                <h3 className="font-serif font-semibold text-base sm:text-lg text-foreground mb-1">{m.name}</h3>
+                <p className="text-accent text-xs sm:text-sm font-medium mb-3">{m.role}</p>
+                <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed mb-4 flex-1">{m.bio}</p>
+                <button className="inline-flex items-center justify-center gap-1 text-muted-foreground hover:text-accent transition-colors" aria-label={`LinkedIn de ${m.name}`}>
                   <Linkedin className="w-4 h-4" />
                 </button>
               </div>
