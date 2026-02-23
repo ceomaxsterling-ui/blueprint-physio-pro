@@ -1,4 +1,5 @@
 import { Heart, Cpu, Users, Target } from "lucide-react";
+import { motion } from "framer-motion";
 import AnimatedSection from "./AnimatedSection";
 
 const differentials = [
@@ -12,7 +13,7 @@ const AboutSection = () => (
   <section id="sobre" className="section-padding bg-background">
     <div className="container mx-auto">
       <div className="grid lg:grid-cols-2 gap-16 items-center">
-        <AnimatedSection>
+        <AnimatedSection direction="left">
           <span className="text-sm font-semibold text-accent uppercase tracking-widest mb-4 block">
             Sobre Nós
           </span>
@@ -35,14 +36,18 @@ const AboutSection = () => (
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           {differentials.map((d, i) => (
-            <AnimatedSection key={d.title} delay={i * 0.1}>
-              <div className="p-6 rounded-2xl bg-card border border-border hover:border-accent/40 transition-all duration-300 hover:shadow-lg group h-full">
-                <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors">
-                  <d.icon className="w-6 h-6 text-accent" />
+            <AnimatedSection key={d.title} delay={i * 0.1} direction="right">
+              <motion.div
+                whileHover={{ y: -6, scale: 1.02 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                className="p-6 rounded-2xl bg-card border border-border hover:border-accent/40 transition-all duration-300 hover:shadow-xl group h-full"
+              >
+                <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-4 group-hover:bg-accent group-hover:text-accent-foreground transition-all duration-300">
+                  <d.icon className="w-6 h-6 text-accent group-hover:text-accent-foreground transition-colors" />
                 </div>
                 <h3 className="font-serif font-semibold text-lg text-foreground mb-2">{d.title}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{d.desc}</p>
-              </div>
+              </motion.div>
             </AnimatedSection>
           ))}
         </div>
