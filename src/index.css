@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,47 +6,86 @@
 
 @layer base {
   :root {
-    --background: 0 0% 7%;
-    --foreground: 0 0% 92%;
+    --background: 210 20% 98%;
+    --foreground: 215 35% 15%;
 
-    --card: 0 0% 10%;
-    --card-foreground: 0 0% 92%;
+    --card: 0 0% 100%;
+    --card-foreground: 215 35% 15%;
 
-    --popover: 0 0% 10%;
-    --popover-foreground: 0 0% 92%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 35% 15%;
 
-    --primary: 0 0% 7%;
-    --primary-foreground: 0 0% 92%;
+    --primary: 210 60% 22%;
+    --primary-foreground: 210 40% 98%;
 
-    --secondary: 153 30% 38%;
-    --secondary-foreground: 0 0% 95%;
+    --secondary: 174 42% 65%;
+    --secondary-foreground: 210 60% 15%;
 
-    --muted: 0 0% 14%;
-    --muted-foreground: 0 0% 55%;
+    --muted: 210 20% 94%;
+    --muted-foreground: 215 15% 50%;
 
-    --accent: 153 40% 45%;
+    --accent: 174 50% 42%;
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 62% 50%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
 
-    --border: 0 0% 16%;
-    --input: 0 0% 16%;
-    --ring: 153 40% 45%;
+    --border: 210 20% 90%;
+    --input: 210 20% 90%;
+    --ring: 174 50% 42%;
 
-    --radius: 1.5rem;
+    --radius: 0.75rem;
 
     --gold: 38 65% 55%;
     --gold-foreground: 38 80% 20%;
 
-    --sidebar-background: 0 0% 8%;
-    --sidebar-foreground: 0 0% 85%;
-    --sidebar-primary: 153 40% 45%;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 215 35% 8%;
+    --foreground: 210 20% 94%;
+
+    --card: 215 35% 12%;
+    --card-foreground: 210 20% 94%;
+
+    --popover: 215 35% 12%;
+    --popover-foreground: 210 20% 94%;
+
+    --primary: 174 50% 50%;
+    --primary-foreground: 210 60% 10%;
+
+    --secondary: 210 40% 20%;
+    --secondary-foreground: 210 20% 94%;
+
+    --muted: 215 30% 16%;
+    --muted-foreground: 215 15% 60%;
+
+    --accent: 174 50% 42%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 215 30% 20%;
+    --input: 215 30% 20%;
+    --ring: 174 50% 42%;
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 0 0% 14%;
-    --sidebar-accent-foreground: 0 0% 85%;
-    --sidebar-border: 0 0% 16%;
-    --sidebar-ring: 153 40% 45%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
 
@@ -61,32 +100,22 @@
   }
 
   h1, h2, h3, h4 {
-    font-family: 'Instrument Serif', serif;
+    font-family: 'Playfair Display', serif;
   }
 }
 
 @layer utilities {
   .text-gradient {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--gold)));
+    background-image: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
   }
 
   .section-padding {
-    @apply px-4 py-24 md:px-8 lg:px-16 xl:px-24 lg:py-32;
+    @apply px-4 py-20 md:px-8 lg:px-16 xl:px-24 lg:py-28;
   }
 
   .glass {
-    backdrop-filter: blur(24px) saturate(180%);
-    background-color: hsla(0, 0%, 7%, 0.8);
-  }
-
-  .glass-card {
-    backdrop-filter: blur(16px);
-    background-color: hsla(0, 0%, 100%, 0.03);
-    border: 1px solid hsla(0, 0%, 100%, 0.06);
-  }
-
-  .luxury-glow {
-    box-shadow: 0 0 60px -12px hsla(153, 40%, 45%, 0.15);
+    backdrop-filter: blur(16px) saturate(180%);
+    background-color: hsla(0, 0%, 100%, 0.72);
   }
 }
